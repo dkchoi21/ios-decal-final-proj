@@ -1,31 +1,53 @@
 //
-//  FriendRequestViewController.swift
+//  FriendRequestTableViewController.swift
 //  ios-final-project
 //
-//  Created by Michael Ma on 11/29/16.
+//  Created by David Choi on 12/1/16.
 //  Copyright © 2016 Michael Ma. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class FriendRequestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet var tableView: UITableView!
+class FriendRequestTableViewController: UITableViewController {
     
+//    let currentUser = FIRDatabase.database().reference().child("UserName").child("e")
+
     let currentUser = FIRDatabase.database().reference().child("UserName").child(mainInstance.name)
     let allUsers = FIRDatabase.database().reference().child("UserName")
     var friendRequestList = [String]()
-    
-    
-    
-    
+
     override func viewDidLoad() {
         getFriendRequestList()
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: "done")
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return friendRequestList.count
+    }
+    
+    func done() {
         
+        self.dismiss(animated: true, completion: nil)
     }
     
     func getFriendRequestList() {
@@ -67,43 +89,32 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
         }
         return user
     }
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return friendRequestList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if cell == nil {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
+            cell = UITableViewCell.init(style: .default, reuseIdentifier: "Cell")
         }
         
         cell.textLabel?.text = friendRequestList[indexPath.row]
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+
+
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
         return true
     }
     
-    
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let acceptAction = UITableViewRowAction.init(style: .normal, title: "Accept", handler: {(rowAction, indexPath) in
             print("Accept action has been pressed")
             self.addFriend(indexPath: indexPath)
-        
+            
         })
         
         acceptAction.backgroundColor = UIColor.green
@@ -117,6 +128,7 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
         
         return [notNowAction, acceptAction]
     }
+    
     
     func addFriend(indexPath: IndexPath) {
         let addFriend = self.friendRequestList.remove(at: indexPath.row)
@@ -135,18 +147,36 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
         
         self.currentUser.child("FriendRequest").child(removedFriend).removeValue()
         self.tableView.reloadData()
-
+        
     }
-    
-
-    @IBAction func Cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
  
 
-    
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
 
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
 
     /*
     // MARK: - Navigation
