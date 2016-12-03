@@ -18,13 +18,13 @@
 		2C63CF1C1DE2A3650031C881 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63CF1B1DE2A3650031C881 /* ProfileViewController.swift */; };
 		2C63CF1E1DE2A4520031C881 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63CF1D1DE2A4520031C881 /* EventsViewController.swift */; };
 		2C63CF201DE2A5DD0031C881 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63CF1F1DE2A5DD0031C881 /* CreateAccountViewController.swift */; };
+		2C67764C1DF0349200AD3C6F /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67764B1DF0349200AD3C6F /* NewEventViewController.swift */; };
 		2C97894B1DEE576600F0E6E9 /* FriendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97894A1DEE576600F0E6E9 /* FriendRequestViewController.swift */; };
 		2C97894D1DEE577700F0E6E9 /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97894C1DEE577700F0E6E9 /* FindFriendsViewController.swift */; };
 		2C97894F1DEE5FEF00F0E6E9 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C97894E1DEE5FEF00F0E6E9 /* global.swift */; };
 		385509DD717D31F43B7B16FD /* Pods_ios_final_projectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01AAB9E5CD79E9744F466207 /* Pods_ios_final_projectUITests.framework */; };
 		3EF4A86D285D777D87542762 /* Pods_ios_final_projectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94400499F83B30B4903617DA /* Pods_ios_final_projectTests.framework */; };
 		D50D1B48C2B15495DA232B6E /* Pods_ios_final_project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A3FEADB3FA2DE92E00943 /* Pods_ios_final_project.framework */; };
-		DE2E49C21DF03AFB0063AB80 /* FriendRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2E49C11DF03AFB0063AB80 /* FriendRequestTableViewController.swift */; };
 		DE7DDC961DEBDC4400840448 /* mainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7DDC951DEBDC4400840448 /* mainTabBarController.swift */; };
 		DE9D7AB01DEAE1300004FEBA /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9D7AAF1DEAE1300004FEBA /* SwitchViewController.swift */; };
 		DEDF0D5A1DE2AC7400DEF405 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DEDF0D591DE2AC7400DEF405 /* GoogleService-Info.plist */; };
@@ -66,6 +66,7 @@
 		2C63CF1B1DE2A3650031C881 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2C63CF1D1DE2A4520031C881 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		2C63CF1F1DE2A5DD0031C881 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		2C67764B1DF0349200AD3C6F /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		2C97894A1DEE576600F0E6E9 /* FriendRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestViewController.swift; sourceTree = "<group>"; };
 		2C97894C1DEE577700F0E6E9 /* FindFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
 		2C97894E1DEE5FEF00F0E6E9 /* global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		C2A2CD2E46E0A4DF75C88542 /* Pods-ios-final-project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-final-project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-final-project/Pods-ios-final-project.debug.xcconfig"; sourceTree = "<group>"; };
 		C548749AFBCB86CFCB0879D0 /* Pods-ios-final-projectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-final-projectUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ios-final-projectUITests/Pods-ios-final-projectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C70E506F043F87ED4D263588 /* Pods-ios-final-projectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-final-projectUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ios-final-projectUITests/Pods-ios-final-projectUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DE2E49C11DF03AFB0063AB80 /* FriendRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewController.swift; sourceTree = "<group>"; };
 		DE7DDC951DEBDC4400840448 /* mainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainTabBarController.swift; sourceTree = "<group>"; };
 		DE9D7AAF1DEAE1300004FEBA /* SwitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		DEDF0D591DE2AC7400DEF405 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -140,9 +140,9 @@
 				2C63CEED1DE29E810031C881 /* HomeViewController.swift */,
 				2C63CEEF1DE29E810031C881 /* FriendsViewController.swift */,
 				2C63CEF11DE29E810031C881 /* Main.storyboard */,
+				2C67764B1DF0349200AD3C6F /* NewEventViewController.swift */,
 				2C97894E1DEE5FEF00F0E6E9 /* global.swift */,
 				2C97894C1DEE577700F0E6E9 /* FindFriendsViewController.swift */,
-				DE2E49C11DF03AFB0063AB80 /* FriendRequestTableViewController.swift */,
 				2C97894A1DEE576600F0E6E9 /* FriendRequestViewController.swift */,
 				DE7DDC951DEBDC4400840448 /* mainTabBarController.swift */,
 				2C63CF1F1DE2A5DD0031C881 /* CreateAccountViewController.swift */,
@@ -481,7 +481,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C63CF201DE2A5DD0031C881 /* CreateAccountViewController.swift in Sources */,
-				DE2E49C21DF03AFB0063AB80 /* FriendRequestTableViewController.swift in Sources */,
 				2C63CEF01DE29E810031C881 /* FriendsViewController.swift in Sources */,
 				DE7DDC961DEBDC4400840448 /* mainTabBarController.swift in Sources */,
 				2C63CEEC1DE29E810031C881 /* AppDelegate.swift in Sources */,
@@ -491,6 +490,7 @@
 				2C63CEEE1DE29E810031C881 /* HomeViewController.swift in Sources */,
 				2C63CF1E1DE2A4520031C881 /* EventsViewController.swift in Sources */,
 				DE9D7AB01DEAE1300004FEBA /* SwitchViewController.swift in Sources */,
+				2C67764C1DF0349200AD3C6F /* NewEventViewController.swift in Sources */,
 				2C97894B1DEE576600F0E6E9 /* FriendRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

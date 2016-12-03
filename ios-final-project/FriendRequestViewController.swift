@@ -19,83 +19,37 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
     
     
     
-    
     override func viewDidLoad() {
-        getFriendRequestList()
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        friendRequestList = mainInstance.friendRequestList
+    
         // Do any additional setup after loading the view, typically from a nib.
         
     }
     
-    func getFriendRequestList() {
-        
-        if mainInstance.friendRequestCheck == 1 {
-            friendRequestList.removeAll()
-            
-            let requestList = currentUser.child("FriendRequest")
-            
-            requestList.observe(.value, with: {(snapshot) in
-                
-                for friend in snapshot.children {
-                    let snapString = String(describing: friend)
-                    let parsedString = self.parseUserName(username: snapString)
-                    self.friendRequestList.append(parsedString)
-                    print(parsedString)
-                    
-                }
-            })
-        }
-        mainInstance.friendRequestCheck = 0
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
-    
-    func parseUserName(username: String) -> String {
-        var user = ""
-        let currentUserName = username.characters
-        
-        var checkParse = false
-        for character in currentUserName {
-            if checkParse {
-                if character == ")" {
-                    break
-                }
-                user += character.description
-            }
-            if character == "(" {
-                checkParse = true
-            }
-        }
-        return user
-    }
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
     
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friendRequestList.count
+        return self.friendRequestList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if cell == nil {
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "cell")
-        }
-        
-        cell.textLabel?.text = friendRequestList[indexPath.row]
+        cell.textLabel?.text = self.friendRequestList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-    
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
@@ -119,22 +73,39 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func addFriend(indexPath: IndexPath) {
+        
+        print(String(self.friendRequestList.count))
+        print(String(self.tableView.numberOfRows(inSection: 0)))
+        
+        self.tableView.beginUpdates()
         let addFriend = self.friendRequestList.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .fade)
+        self.tableView.endUpdates()
+
         self.currentUser.child("FriendRequest").child(addFriend).removeValue()
-        
         self.currentUser.child("Friends").child(addFriend).setValue(0)
         self.allUsers.child(addFriend).child("Friends").child(self.currentUser.key).setValue(0)
         
-        self.tableView.reloadData()
-    }
+        print(String(self.friendRequestList.count))
+        print(String(self.tableView.numberOfRows(inSection: 0)))
+        
+        }
     
     func declineFriend(indexPath: IndexPath) {
+        
+        print(String(self.friendRequestList.count))
+        print(String(self.tableView.numberOfRows(inSection: 0)))
+
+        
+        self.tableView.beginUpdates()
         let removedFriend = self.friendRequestList.remove(at: indexPath.row)
         self.tableView.deleteRows(at: [indexPath], with: .fade)
-        
+        self.tableView.endUpdates()
+                
         self.currentUser.child("FriendRequest").child(removedFriend).removeValue()
-        self.tableView.reloadData()
+        
+        print(String(self.friendRequestList.count))
+        print(String(self.tableView.numberOfRows(inSection: 0)))
 
     }
     
@@ -142,20 +113,5 @@ class FriendRequestViewController: UIViewController, UITableViewDataSource, UITa
     @IBAction func Cancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
- 
-
-    
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
